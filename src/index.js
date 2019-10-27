@@ -1,13 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {Provider} from 'react-redux'
 
-import styles from './main.module.scss'
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+import styles from './main.scss'
 import Recap from './Components/Organism/Recap';
 import BookStore from './Components/Organism/BookStore';
-
+import {store} from './store';
 
 const App = () => {
-return (<div><BookStore/> <Recap/><div className={styles.container}>Hello React,Webpack 4 & Babel 7!</div></div>);
+  return (
+    <Switch>
+      <Route excat path="/" component={BookStore}/>
+      <Route exact path="/recap" component={Recap}/>
+    </Switch>
+  );
 };
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(
+  <Provider store={store}>
+  <Router><App/></Router>
+</Provider>, document.querySelector("#root"));

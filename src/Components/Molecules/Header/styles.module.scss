@@ -1,0 +1,39 @@
+@import "../../../styles/common";
+
+.container{
+    background: $sun-flower;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    .label{
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 62px;
+    }
+
+    .cart{
+        background-color: $black;
+        color:$white;
+        width: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        .quantity{
+            background: $sun-flower;
+            border-radius: 50%;
+            color: $black;
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            font-weight: 600;
+            height: 17px;
+            margin: 0 auto;
+            width: 17px;
+        }
+    }
+}

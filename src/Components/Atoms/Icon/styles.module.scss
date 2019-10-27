@@ -1,0 +1,14 @@
+@import "../../../styles/common";
+
+.icon {
+  font-family: icomoon;
+  font-style: normal;
+
+  &.icon-eye::after {
+    content: $eye;
+  }
+  &.icon-cart::after {
+    content: $cart;
+  }
+
+}

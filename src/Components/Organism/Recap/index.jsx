@@ -1,5 +1,7 @@
 import React from "react";
 
-const Recap = () =><div> Recap </div>;
+import {Button} from '../../Atoms/Button';
+
+const Recap = () =><div> Recap <Button/> </div>;
 
 export default Recap;
