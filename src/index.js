@@ -1,20 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {Provider} from 'react-redux'
-
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import styles from './main.scss'
 import Recap from './Components/Organism/Recap';
 import BookStore from './Components/Organism/BookStore';
 import {store} from './store';
+import {Header} from "./Components/Molecules/Header/index";
 
 const App = () => {
   return (
-    <Switch>
-      <Route excat path="/" component={BookStore}/>
-      <Route exact path="/recap" component={Recap}/>
-    </Switch>
+    <div>
+      <Header quantity={0}/>
+      <Switch>
+        <Route excat path="/" component={BookStore}/>
+        <Route exact path="/recap" component={Recap}/>
+      </Switch>
+    </div>
+
   );
 };
 

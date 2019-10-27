@@ -1,0 +1,48 @@
+@import "../../../styles/common";
+
+.container{
+    box-shadow: 0px 0px 7px 2px rgba(149, 149, 149, 0.15);
+    border-radius: 3px;
+    padding: 16px;
+    width: 230px;
+
+    .cover{
+        background-size: contain;
+        height: 340px;
+        z-index:1;
+
+        .action{
+            align-items: center;
+            background-color: rgba($sun-flower,0.8);
+            display: flex;
+            height: 340px;            
+            justify-content: center;
+            z-index: 10;
+
+            .icon{
+                border: solid $white 5px;
+                border-radius: 3px;
+                color: $black;
+                cursor: pointer;
+                padding: 8px;
+                margin: 0 10px;
+            }
+        }
+
+    }
+    .title{
+        align-items: center;
+        display: flex;
+        min-height: 71px;
+        padding: 16px 0;
+        text-align: center;
+    
+    }
+
+    .price{
+        border-top: 1px solid $black;
+        text-align: right;
+        padding-top:5px;
+        
+    }
+}

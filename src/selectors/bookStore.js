@@ -1,8 +1,8 @@
 import {createSelector} from 'reselect'
 
-const bookStore = state.bookStore;
+const bookStore = state => state.bookStore;
 
-const booksSelector = createSelector(bookStore, books => books);
+const booksSelector = createSelector(bookStore, books => books.books);
 const loadingSelector = createSelector(bookStore, loading => loading);
 const errorSelector = createSelector(bookStore, error => error);
 
