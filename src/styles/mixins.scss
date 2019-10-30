@@ -1,0 +1,20 @@
+@mixin raised($bg, $fg: $white) {
+    background-color: $bg;
+    border: 1px solid $bg;
+    color: $fg;
+
+    &.disabled {
+      background-color: rgba($bg, $light-opacity);
+      border: 1px solid rgba($bg, 0);
+      cursor: not-allowed;
+
+      * {
+        cursor: not-allowed;
+      }
+    }
+
+    &:hover:not(.disabled) {
+      background-color: $bg;
+      box-shadow: 0 0 9px 0 rgba($bg, $light-opacity), 0 0 0 1px $white inset;
+    }
+  }

@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+
+    .content{
+        padding-left: 32px;
+
+        .label{
+            display: flex;
+            padding-bottom: 16px;
+           .attribute {
+            font-weight: bold;
+            padding-right: 16px;
+            min-width: 58px;
+        }
+        }
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 25px;
+    }
+}

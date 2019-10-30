@@ -1,0 +1,27 @@
+@import "../../../styles/common";
+
+ $height: 38px;
+
+ .button {
+      border: 0;
+      box-shadow: 0 0 0 1px white inset;
+      cursor: pointer;
+      font-weight: 600;
+      height: $height;
+      line-height: $height - 2px;
+      outline: 0;
+      padding: 0 35px;
+      text-transform: uppercase;
+
+      * {
+        cursor: pointer;
+      }
+
+      &.primary {
+        @include raised($sun-flower);
+      }
+
+      &.dark {
+        @include raised($black);
+      }
+}

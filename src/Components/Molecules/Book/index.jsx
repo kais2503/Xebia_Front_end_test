@@ -15,6 +15,7 @@ const partialBook = ({
 
     const [hidden,
         toggleHover] = useState(false);
+
     const imgStyle = {
         backgroundImage: `url(${cover})`
     };
@@ -39,6 +40,7 @@ const partialBook = ({
                 {price}€</div>
 
         </div>
+
     );
 }
 

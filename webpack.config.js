@@ -7,6 +7,10 @@ module.exports = {
   entry: [
     './src/index.js', './src/styles/global.scss'
   ],
+  output: {
+    filename: 'index_bundle.js',
+    publicPath: '/'
+  },
 
   module: {
     rules: [

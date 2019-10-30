@@ -3,6 +3,7 @@
 .icon {
   font-family: icomoon;
   font-style: normal;
+  font-size: 14px;
 
   &.icon-eye::after {
     content: $eye;
@@ -10,5 +11,15 @@
   &.icon-cart::after {
     content: $cart;
   }
+
+  &.icon-chevron-right::after{
+    content: $cheveron-right;
+  }
+
+  &.icon-chevron-left::after{
+    content: $cheveron-left;
+  }
+
+  
 
 }
