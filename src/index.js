@@ -15,7 +15,6 @@ import {Spinner} from "./Components/Atoms/Spinner/index";
 class PartialApp extends React.PureComponent {
   render() {
     const {cartValues, loading} = this.props;
-    console.log(loading);
     return (
       <div>
 

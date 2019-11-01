@@ -15,7 +15,8 @@ export const cartReducer = (state = {}, action) => {
                                 ...value,
                                 quantity: value.quantity + 1
                             }
-                            : value)
+                            : value),
+                    subtotal: state.subtotal + action.book.price
                 }
             }
             return {
@@ -25,8 +26,25 @@ export const cartReducer = (state = {}, action) => {
                         ...action.book,
                         quantity: 1
                     }
-                ]
+                ],
+                subtotal: state.subtotal + action.book.price
 
+            }
+        case 'GET_OFFERS_LOADING':
+            return {
+                ...state,
+                loading: true
+            }
+        case 'GET_OFFERS_ERROR':
+            return {
+                ...state,
+                loading: false
+            }
+        case 'GET_OFFERS_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                total: action.total
             }
 
         default:

@@ -1,12 +1,27 @@
 import React from "react";
-import {Spinner} from "../../Atoms/Spinner/index";
+import {connect} from 'react-redux';
 
-export class Cart extends React.PureComponent {
+import {getOffersRequest} from "../../../actions/cart";
+
+class PartialCart extends React.PureComponent {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        this
+            .props
+            .getOffersRequest();
+    }
 
     render() {
-        return <div><Spinner/></div>
+        return <div>cart</div>
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getOffersRequest: () => dispatch(getOffersRequest())
+    }
+}
+
+export const Cart = connect(null, mapDispatchToProps)(PartialCart);

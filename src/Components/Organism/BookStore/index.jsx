@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
+import {Link} from "react-router-dom";
 
 import {getBooksRequest} from '../../../actions/bookStore';
 import {Icon} from '../../Atoms/Icon';
@@ -25,6 +26,7 @@ class BookStore extends React.PureComponent {
         } = this.props;
         return (
             <div className={styles.container}>
+                <Link to="/cart">Cart</Link>
 
                 {books.map((book, index) => (
                     <div>
