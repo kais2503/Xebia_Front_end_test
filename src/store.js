@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 import {reducer} from "./reducers";
 import {showDetailedBook} from "./actions/ui";
+import {getBooksRequest} from "./actions/bookStore";
 
 const initialState = {
     bookStore: {
@@ -23,3 +24,4 @@ const initialState = {
 
 }
 export const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
+store.dispatch(getBooksRequest());

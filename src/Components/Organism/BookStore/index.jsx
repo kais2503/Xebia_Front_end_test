@@ -14,11 +14,6 @@ import {addBook} from "../../../actions/cart";
 
 class BookStore extends React.PureComponent {
 
-    componentDidMount() {
-        this
-            .props
-            .getBooksRequest();
-    }
     render() {
         const {
             addBook,
@@ -30,6 +25,7 @@ class BookStore extends React.PureComponent {
         } = this.props;
         return (
             <div className={styles.container}>
+
                 {books.map((book, index) => (
                     <div>
                         <Book

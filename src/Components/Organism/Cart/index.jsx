@@ -1,4 +1,5 @@
 import React from "react";
+import {Spinner} from "../../Atoms/Spinner/index";
 
 export class Cart extends React.PureComponent {
     constructor(props) {
@@ -6,6 +7,6 @@ export class Cart extends React.PureComponent {
     }
 
     render() {
-        return <div>Cart</div>
+        return <div><Spinner/></div>
     }
 }
