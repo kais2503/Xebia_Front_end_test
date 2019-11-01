@@ -6,6 +6,7 @@ import {Icon} from '../../Atoms/Icon';
 import {Button} from "../../Atoms/Button/index";
 
 const partialBookDetailed = ({
+    addBook,
     className,
     cover,
     hide,
@@ -39,9 +40,9 @@ const partialBookDetailed = ({
                     continuer mes achats
                 </div>
             </Button>
-            <Button >
+            <Button onClick={addBook}>
                 <div>
-                    Voir mon panier
+                    ajouter au panier
                     <Icon type="chevron-right"/>
                 </div>
             </Button>

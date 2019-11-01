@@ -1,5 +1,4 @@
 export const showDetailedBook = isbn => {
-    console.log(isbn);
     return {type: 'SHOW_DETAILED_BOOK', isbn}
 }
 

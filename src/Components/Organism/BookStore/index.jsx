@@ -28,7 +28,6 @@ class BookStore extends React.PureComponent {
             showDetailedBook,
             showedDetailedBook
         } = this.props;
-        console.log(this.props);
         return (
             <div className={styles.container}>
                 {books.map((book, index) => (
@@ -49,6 +48,7 @@ class BookStore extends React.PureComponent {
                 {showedDetailedBook && <Modal on={showedDetailedBook !== false}>
                     <div>
                         <BookDetailed
+                            addBook={addBook}
                             cover={getbook(showedDetailedBook, books).cover}
                             className={styles.book}
                             isbn={getbook(showedDetailedBook, books).isbn}

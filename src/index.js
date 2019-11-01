@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Provider} from 'react-redux'
+import {Provider, connect} from 'react-redux'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import styles from './main.scss'
@@ -9,20 +9,33 @@ import {store} from './store';
 import {Header} from "./Components/Molecules/Header/index";
 import {Modal} from "./Components/Atoms/Modal/index";
 import {Cart} from "./Components/Organism/Cart";
+import {selectors} from "./selectors/index";
 
-const App = () => {
-  return (
-    <div>
+class PartialApp extends React.PureComponent {
+  render() {
+    const {cartValues} = this.props;
+    return (
+      <div>
 
-      <Header quantity={0}/>
-      <Switch>
-        <Route exact path="/cart" component={Cart}/>
-        <Route excat path="/" component={BookStore}/>
-      </Switch>
-    </div>
+        <Header quantity={cartValues.length}/>
+        <Switch>
+          <Route exact path="/cart" component={Cart}/>
+          <Route excat path="/" component={BookStore}/>
+        </Switch>
+      </div>
 
-  );
-};
+    );
+  };
+}
+const mapStateToProps = (state) => {
+  return {
+    cartValues: selectors
+      .cart
+      .cartValuesSelector(state)
+  };
+}
+
+const App = connect(mapStateToProps)(PartialApp);
 
 ReactDOM.render(
   <Provider store={store}>

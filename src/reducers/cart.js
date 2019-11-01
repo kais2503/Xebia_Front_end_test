@@ -2,13 +2,31 @@ export const cartReducer = (state = {}, action) => {
 
     switch (action.type) {
         case 'ADD_BOOK':
-            console.log(action.book, state);
+            const updatedBookindex = state
+                .values
+                .findIndex(value => value.isbn === action.book.isbn);
+            if (updatedBookindex !== -1) {
+                return {
+                    ...state,
+                    values: state
+                        .values
+                        .map((value, key) => key === updatedBookindex
+                            ? {
+                                ...value,
+                                quantity: value.quantity + 1
+                            }
+                            : value)
+                }
+            }
             return {
                 ...state,
                 values: [
-                    ...state.values,
-                    action.book
+                    ...state.values, {
+                        ...action.book,
+                        quantity: 1
+                    }
                 ]
+
             }
 
         default:

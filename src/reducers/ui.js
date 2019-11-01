@@ -6,6 +6,7 @@ export const uiReducer = (state = {}, action) => {
                 ...state,
                 showedDetailedBook: action.isbn
             }
+        case 'ADD_BOOK':
         case 'HIDE_MODAL':
             return {
                 ...state,

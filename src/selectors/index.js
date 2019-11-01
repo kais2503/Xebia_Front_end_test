@@ -4,6 +4,6 @@ import {uiSelector} from "./ui";
 
 export const selectors = {
     bookStore: bookStoreSelector,
-    //cart: cartSelector,
+    cart: cartSelector,
     ui: uiSelector
 };
