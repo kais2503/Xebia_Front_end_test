@@ -30,6 +30,16 @@ export const cartReducer = (state = {}, action) => {
                 subtotal: state.subtotal + action.book.price
 
             }
+        case 'DELETE_BOOK':
+            const newValues = state
+                .values
+                .filter(value => value.isbn !== action.isbn);
+            const newSubtotal = newValues.reduce((acc, value) => acc + (value.price * value.quantity), 0);
+            return {
+                ...state,
+                values: [...newValues],
+                subtotal: newSubtotal
+            }
         case 'GET_OFFERS_LOADING':
             return {
                 ...state,

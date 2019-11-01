@@ -20,6 +20,14 @@
     content: $cheveron-left;
   }
 
+  &.icon-close::after{
+    content: $close;
+  }
+
+  &.icon-delete::after{
+    content: $delete;
+    cursor: pointer;
+  }
   
 
 }
