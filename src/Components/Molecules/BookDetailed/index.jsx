@@ -8,8 +8,8 @@ import {Button} from "../../Atoms/Button/index";
 const partialBookDetailed = ({
     className,
     cover,
+    hide,
     isbn,
-    key,
     price,
     synopsis,
     title
@@ -33,7 +33,7 @@ const partialBookDetailed = ({
             Synopsis :</div>
         {synopsis.map((syn, index) => <div>{syn}</div>)}
         <div className={styles.buttons}>
-            <Button color="dark">
+            <Button color="dark" onClick={hide}>
                 <div>
                     <Icon type="chevron-left"/>
                     continuer mes achats

@@ -5,11 +5,13 @@ import styles from './styles.module.scss';
 import {Icon} from '../../Atoms/Icon';
 
 const partialBook = ({
+    addBook,
     className,
     cover,
     isbn,
     key,
     price,
+    showBook,
     title
 }) => {
 
@@ -28,8 +30,9 @@ const partialBook = ({
                 onMouseLeave={() => toggleHover(!hidden)}
                 style={imgStyle}>
                 {hidden && <div className={styles.action}>
-                    <Icon type="eye" className={styles.icon}/>
-                    <Icon type="cart" className={styles.icon}/>
+                    <span onClick={() => showBook(isbn)}>
+                        <Icon type="eye" className={styles.icon}/></span>
+                    <span onClick={() => addBook({isbn, title, price})}><Icon type="cart" className={styles.icon}/></span>
                 </div>}
             </div>
             <div className={styles.title}>

@@ -3,7 +3,7 @@ import classNames from "classnames"
 
 import styles from "./styles.module.scss";
 
-const partialIcon = ({className, type}) => {
+const partialIcon = ({action, className, type}) => {
     const iconClassName = classNames(styles.icon, styles[`icon-${type}`], className,);
     return <i className={iconClassName}/>
 }

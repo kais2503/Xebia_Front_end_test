@@ -11,6 +11,9 @@ module.exports = {
     filename: 'index_bundle.js',
     publicPath: '/'
   },
+  devServer: {
+    historyApiFallback: true
+  },
 
   module: {
     rules: [

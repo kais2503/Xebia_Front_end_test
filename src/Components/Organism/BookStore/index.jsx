@@ -6,9 +6,11 @@ import {Icon} from '../../Atoms/Icon';
 import {Modal} from '../../Atoms/Modal';
 import {Book} from "../../Molecules/Book";
 import {BookDetailed} from "../../Molecules/BookDetailed/index";
-import {bookStoreSelector} from "../../../selectors/bookStore";
 import styles from './styles.module.scss';
 import {Button} from "../../Atoms/Button/index";
+import {selectors} from "../../../selectors";
+import {showDetailedBook, hideModal} from "../../../actions/ui";
+import {addBook} from "../../../actions/cart";
 
 class BookStore extends React.PureComponent {
 
@@ -18,35 +20,46 @@ class BookStore extends React.PureComponent {
             .getBooksRequest();
     }
     render() {
-        const {books} = this.props;
+        const {
+            addBook,
+            books,
+            getbook,
+            hideModal,
+            showDetailedBook,
+            showedDetailedBook
+        } = this.props;
+        console.log(this.props);
         return (
             <div className={styles.container}>
                 {books.map((book, index) => (
                     <div>
                         <Book
+                            addBook={addBook}
                             cover={book.cover}
                             className={styles.book}
                             isbn={book.isbn}
                             key={index}
                             price={book.price}
                             title={book.title}
+                            showBook={showDetailedBook}
                             synopsis={book.synopsis}/>
 
                     </div>
                 ))}
-                <Modal on={true}>
+                {showedDetailedBook && <Modal on={showedDetailedBook !== false}>
                     <div>
-                        {books.length > 0 && <BookDetailed
-                            cover={books[0].cover}
+                        <BookDetailed
+                            cover={getbook(showedDetailedBook, books).cover}
                             className={styles.book}
-                            isbn={books[0].isbn}
-                            key={1}
-                            price={books[0].price}
-                            title={books[0].title}
-                            synopsis={books[0].synopsis}/>}
+                            isbn={getbook(showedDetailedBook, books).isbn}
+                            price={getbook(showedDetailedBook, books).price}
+                            title={getbook(showedDetailedBook, books).title}
+                            synopsis={getbook(showedDetailedBook, books).synopsis}
+                            hide={hideModal}/>
 
                     </div>
                 </Modal>
+}
 
             </div>
         );
@@ -54,14 +67,27 @@ class BookStore extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => {
+    const books = selectors
+        .bookStore
+        .booksSelector(state);
+
+    const showedDetailedBook = selectors
+        .ui
+        .showDetailedBookSelector(state);
+
     return {
-        books: bookStoreSelector.booksSelector(state)
+        books,
+        getbook: (isbn, books) => books.find(book => book.isbn === isbn),
+        showedDetailedBook
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getBooksRequest: () => dispatch(getBooksRequest())
+        addBook: (book) => dispatch(addBook(book)),
+        getBooksRequest: () => dispatch(getBooksRequest()),
+        showDetailedBook: (isbn) => dispatch(showDetailedBook(isbn)),
+        hideModal: () => dispatch(hideModal())
     }
 }
 

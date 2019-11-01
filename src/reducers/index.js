@@ -1,7 +1,7 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 
-import { bookStore } from "./bookStore";
+import {bookStoreReducer} from "./bookStore";
+import {cartReducer} from "./cart";
+import {uiReducer} from "./ui";
 
-export const reducer = combineReducers({
-    bookStore:bookStore
-});
+export const reducer = combineReducers({bookStore: bookStoreReducer, cart: cartReducer, ui: uiReducer});
