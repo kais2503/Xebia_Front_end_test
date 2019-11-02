@@ -5,14 +5,22 @@ export const uiReducer = (state = {}, action) => {
             return {
                 ...state,
                 showedDetailedBook: action.isbn
+
             }
-        case 'ADD_BOOK':
+
         case 'HIDE_MODAL':
             return {
                 ...state,
+                showConfiramtion: false,
                 showedDetailedBook: false
             }
+        case 'ADD_BOOK':
+            return {
+                ...state,
+                showedDetailedBook: false,
+                showConfiramtion: action.book.isbn
 
+            }
         default:
             return state
     }

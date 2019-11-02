@@ -21,6 +21,7 @@ class BookStore extends React.PureComponent {
             books,
             getbook,
             hideModal,
+            showConfiramtion,
             showDetailedBook,
             showedDetailedBook
         } = this.props;
@@ -43,7 +44,7 @@ class BookStore extends React.PureComponent {
 
                     </div>
                 ))}
-                {showedDetailedBook && <Modal on={showedDetailedBook !== false}>
+                {showedDetailedBook && <Modal on={showedDetailedBook !== false} hide={hideModal}>
                     <div>
                         <BookDetailed
                             addBook={addBook}
@@ -58,6 +59,31 @@ class BookStore extends React.PureComponent {
                     </div>
                 </Modal>
 }
+                {showConfiramtion && <Modal on={showConfiramtion !== false} hide={hideModal}>
+                    <div>
+                        <div>
+                            Le livre {getbook(showConfiramtion, books).title}
+                            a été bien ajouté dans votre panier
+                        </div>
+                        <div className={styles.buttons}>
+                            <Button color="dark" onClick={hideModal}>
+                                <div>
+                                    <Icon type="chevron-left"/>
+                                    continuer mes achats
+                                </div>
+                            </Button>
+                            <Button onClick={hideModal}>
+
+                                <Link to='/cart'>
+                                    Voir mon panier
+                                    <Icon type="chevron-right"/>
+                                </Link>
+
+                            </Button>
+
+                        </div>
+                    </div>
+                </Modal>}
 
             </div>
         );
@@ -73,9 +99,14 @@ const mapStateToProps = (state) => {
         .ui
         .showDetailedBookSelector(state);
 
+    const showConfiramtion = selectors
+        .ui
+        .showConfiramtionSelector(state);
+
     return {
         books,
         getbook: (isbn, books) => books.find(book => book.isbn === isbn),
+        showConfiramtion,
         showedDetailedBook
     }
 }

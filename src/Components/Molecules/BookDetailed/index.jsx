@@ -16,7 +16,7 @@ const partialBookDetailed = ({
     title
 }) => <div className={styles.container}>
     <div>
-        <img src={cover}/>
+        <img src={cover} className={styles.cover}/>
     </div>
     <div className={styles.content}>
         <div className={styles.label}>
@@ -40,7 +40,7 @@ const partialBookDetailed = ({
                     continuer mes achats
                 </div>
             </Button>
-            <Button onClick={addBook}>
+            <Button onClick={() => addBook({isbn, title, price})}>
                 <div>
                     ajouter au panier
                     <Icon type="chevron-right"/>

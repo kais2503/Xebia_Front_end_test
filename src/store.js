@@ -19,7 +19,7 @@ const initialState = {
     },
     ui: {
         showedDetailedBook: false,
-        showConfiramtion: null
+        showConfiramtion: false
     }
 
 }
