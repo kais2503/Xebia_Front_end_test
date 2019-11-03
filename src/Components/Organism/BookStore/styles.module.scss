@@ -1,13 +1,10 @@
 .container{
+    padding: 32px;
     display: flex;
     flex-wrap: wrap;
-    padding: 32px;
-
     .book{
         margin: 10px 20px 0 0;
     }
-
-    
 }
 .buttons{
     display: flex;

@@ -8,7 +8,6 @@ const errorSelector = createSelector(bookStore, state => state.error);
 
 export const bookStoreSelector = {
     booksSelector,
-    loadingSelector,
-    errorSelector
-
+    errorSelector,
+    loadingSelector
 }

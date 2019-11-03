@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 
-import {getBooksRequest} from '../../../actions/bookStore';
+import {getBooksRequest, filterBooks} from '../../../actions/bookStore';
 import {Icon} from '../../Atoms/Icon';
 import {Modal} from '../../Atoms/Modal';
 import {Book} from "../../Molecules/Book";
@@ -14,6 +14,9 @@ import {showDetailedBook, hideModal} from "../../../actions/ui";
 import {addBook} from "../../../actions/cart";
 
 class BookStore extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         const {
@@ -23,12 +26,11 @@ class BookStore extends React.PureComponent {
             hideModal,
             showConfiramtion,
             showDetailedBook,
-            showedDetailedBook
+            showedDetailedBook,
+            getBooksRequest
         } = this.props;
         return (
             <div className={styles.container}>
-                <Link to="/cart">Cart</Link>
-
                 {books.map((book, index) => (
                     <div>
                         <Book
@@ -114,7 +116,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         addBook: (book) => dispatch(addBook(book)),
-        getBooksRequest: () => dispatch(getBooksRequest()),
+        getBooksRequest: (filter) => dispatch(getBooksRequest(filter)),
         showDetailedBook: (isbn) => dispatch(showDetailedBook(isbn)),
         hideModal: () => dispatch(hideModal())
     }

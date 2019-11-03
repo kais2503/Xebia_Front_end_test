@@ -17,6 +17,7 @@ export const bookStoreReducer = (state = {}, action) => {
                 ...state,
                 loading: false
             }
+
         default:
             return state
     }
