@@ -9,6 +9,7 @@ const partialSerachBar = ({filterBooks}) => (
             <Field
                 name="search"
                 component="input"
+                placeholder="recherche"
                 type="text"
                 onChange={(e) => filterBooks(e.target.value)}/>
         </div>
