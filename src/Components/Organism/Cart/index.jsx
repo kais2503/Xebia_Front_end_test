@@ -1,15 +1,13 @@
 import React from "react";
-import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 
-import {getOffersRequest, deleteBook} from "../../../actions/cart";
-import {selectors} from "../../../selectors";
 import {Icon} from '../../Atoms/Icon';
 import {Button} from "../../Atoms/Button/index";
+import {connecter} from './connect';
 
 import styles from './styles.module.scss';
 
-class PartialCart extends React.PureComponent {
+class Cart extends React.PureComponent {
     constructor(props) {
         super(props);
     }
@@ -74,26 +72,4 @@ class PartialCart extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        cartValues: selectors
-            .cart
-            .cartValuesSelector(state),
-        subtotal: selectors
-            .cart
-            .subtotalSelector(state),
-        total: selectors
-            .cart
-            .totalSelector(state)
-    }
-
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        getOffersRequest: () => dispatch(getOffersRequest()),
-        deleteBook: (isbn) => dispatch(deleteBook(isbn))
-    }
-}
-
-export const Cart = connect(mapStateToProps, mapDispatchToProps)(PartialCart);
+export default connecter(Cart);

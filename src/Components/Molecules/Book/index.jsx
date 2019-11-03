@@ -40,7 +40,8 @@ const partialBook = ({
             </div>
 
             <div className={styles.price}>
-                {price}€</div>
+                <span onClick={() => showBook(isbn)}>
+                    <Icon type="eye" className={styles.icon}/></span>{price}€</div>
 
         </div>
 

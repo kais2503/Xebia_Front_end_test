@@ -12,6 +12,7 @@ const initialState = {
         loading: false
     },
     cart: {
+        loading: false,
         values: [],
         subtotal: 0,
         total: 0

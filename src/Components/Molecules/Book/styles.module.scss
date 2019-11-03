@@ -42,19 +42,17 @@
 
     .price{
         border-top: 1px solid $black;
-        text-align: right;
-        padding-top:5px;
+        padding-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        .icon{
+            background: $sun-flower;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 25px;
+            padding: 6px;
+        }
         
     }
-}
-.modal{
-background-color: rgba(0,0,0,0.5);
-position: fixed;
-height: 100%;
-width: 100%;
-top: 0;
-left: 0;
-display: flex;
-align-items: center;
-justify-content: center;
 }

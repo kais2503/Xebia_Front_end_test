@@ -1,6 +1,5 @@
 export const getBooksRequest = (filter = '') => (dispatch) => {
     const urlRequest = 'http://henri-potier.xebia.fr/books';
-    console.log(filter);
     dispatch(getBooksLoading());
     return fetch(urlRequest)
         .then(response => response.json())
@@ -24,8 +23,13 @@ export const getBooksLoading = () => {
 };
 
 const getFiltredBooks = (books, filter) => {
-    console.log(books);
     const filterRegex = RegExp(`.${filter}.`, 'i');
-
     return books.filter(book => filterRegex.test(book.title) || filterRegex.test(book.synopsis.join()));
+}
+
+export const bookStoreActionsCreators = {
+    getBooksFailure,
+    getBooksLoading,
+    getBooksRequest,
+    getBooksSuccess
 }

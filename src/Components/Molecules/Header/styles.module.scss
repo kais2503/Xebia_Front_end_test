@@ -14,6 +14,17 @@
         line-height: 62px;
     }
 
+    .cart-part{
+        display: flex;
+        padding-right: 16px;
+    
+
+    .search-bar{
+        align-items: center;
+        display: flex;
+        padding-right: 16px;
+    }
+
     .cart{
         background-color: $black;
         color:$white;
@@ -37,4 +48,5 @@
             width: 17px;
         }
     }
+}
 }

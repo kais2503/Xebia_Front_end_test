@@ -12,10 +12,11 @@ export const bookStoreReducer = (state = {}, action) => {
                 ...state,
                 loading: true
             }
-        case 'GET_BOOKS_ERROR':
+        case 'GET_BOOKS_FAILURE':
             return {
                 ...state,
-                loading: false
+                loading: false,
+                error: action.error
             }
 
         default:

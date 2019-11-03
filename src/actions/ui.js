@@ -5,3 +5,8 @@ export const showDetailedBook = isbn => {
 export const hideModal = () => {
     return {type: 'HIDE_MODAL'}
 }
+
+export const uiActionsCreators = {
+    hideModal,
+    showDetailedBook
+}

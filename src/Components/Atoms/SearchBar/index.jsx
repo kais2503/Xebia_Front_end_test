@@ -1,8 +1,6 @@
 import React from "react";
 import {Field, reduxForm} from 'redux-form'
 
-import styles from './styles.module.scss';
-
 const partialSerachBar = ({filterBooks}) => (
     <form onSubmit={e => e.preventDefault()}>
         <div>
@@ -16,4 +14,4 @@ const partialSerachBar = ({filterBooks}) => (
     </form>
 )
 
-export const SearchBar = reduxForm({form: 'searchBar', destroyOnUnmount: false, keepDirtyOnReinitialize: true})(React.memo(partialSerachBar));
+export const SearchBar = reduxForm({form: 'searchBar', destroyOnUnmount: false})(React.memo(partialSerachBar));

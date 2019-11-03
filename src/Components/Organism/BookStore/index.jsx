@@ -18,7 +18,7 @@ class BookStore extends React.PureComponent {
         const {
             addBook,
             books,
-            getbook,
+            getBook,
             hideModal,
             showConfiramtion,
             showDetailedBook,
@@ -46,12 +46,12 @@ class BookStore extends React.PureComponent {
                     <div>
                         <BookDetailed
                             addBook={addBook}
-                            cover={getbook(showedDetailedBook, books).cover}
+                            cover={getBook(showedDetailedBook, books).cover}
                             className={styles.book}
-                            isbn={getbook(showedDetailedBook, books).isbn}
-                            price={getbook(showedDetailedBook, books).price}
-                            title={getbook(showedDetailedBook, books).title}
-                            synopsis={getbook(showedDetailedBook, books).synopsis}
+                            isbn={getBook(showedDetailedBook, books).isbn}
+                            price={getBook(showedDetailedBook, books).price}
+                            title={getBook(showedDetailedBook, books).title}
+                            synopsis={getBook(showedDetailedBook, books).synopsis}
                             hide={hideModal}/>
 
                     </div>
@@ -60,7 +60,7 @@ class BookStore extends React.PureComponent {
                 {showConfiramtion && <Modal on={showConfiramtion !== false} hide={hideModal}>
                     <div>
                         <div>
-                            Le livre {getbook(showConfiramtion, books).title}
+                            Le livre {getBook(showConfiramtion, books).title}
                             a été bien ajouté dans votre panier
                         </div>
                         <div className={styles.buttons}>

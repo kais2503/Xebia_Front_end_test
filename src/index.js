@@ -8,11 +8,10 @@ import BookStore from './Components/Organism/BookStore';
 import {store} from './store';
 import {Header} from "./Components/Molecules/Header/index";
 import {Modal} from "./Components/Atoms/Modal/index";
-import {Cart} from "./Components/Organism/Cart";
+import Cart from "./Components/Organism/Cart";
 import {selectors} from "./selectors/index";
 import {Spinner} from "./Components/Atoms/Spinner/index";
 import {getBooksRequest} from "./actions/bookStore";
-import {SearchBar} from "./Components/Atoms/SearchBar/index";
 
 class PartialApp extends React.PureComponent {
 
@@ -26,9 +25,7 @@ class PartialApp extends React.PureComponent {
     return (
       <div>
 
-        <Header quantity={cartValues.length}/>
-        <div className={styles['search-bar']}><SearchBar filterBooks={getBooksRequest}/></div>
-        {loading
+        <Header quantity={cartValues.length} getBooksRequest={getBooksRequest}/> {loading
           ? <Spinner/>
           : <Switch>
             <Route exact path="/cart" component={Cart}/>

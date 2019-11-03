@@ -46,3 +46,12 @@ export const getOffersRequest = () => (dispatch, getState) => {
         .then(data => dispatch(getOffersSuccess(computeBestOffer(data.offers, cartState.subtotal))))
         .catch(error => dispatch(getOffersFailure(error)));
 }
+
+export const cartActionsCreators = {
+    addBook,
+    deleteBook,
+    getOffersFailure,
+    getOffersLoading,
+    getOffersRequest,
+    getOffersSuccess
+}
