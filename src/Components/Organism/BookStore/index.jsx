@@ -1,17 +1,13 @@
 import React from "react";
-import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 
-import {getBooksRequest, filterBooks} from '../../../actions/bookStore';
 import {Icon} from '../../Atoms/Icon';
 import {Modal} from '../../Atoms/Modal';
 import {Book} from "../../Molecules/Book";
 import {BookDetailed} from "../../Molecules/BookDetailed/index";
 import styles from './styles.module.scss';
 import {Button} from "../../Atoms/Button/index";
-import {selectors} from "../../../selectors";
-import {showDetailedBook, hideModal} from "../../../actions/ui";
-import {addBook} from "../../../actions/cart";
+import {connecter} from './connect'
 
 class BookStore extends React.PureComponent {
     constructor(props) {
@@ -92,34 +88,4 @@ class BookStore extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
-    const books = selectors
-        .bookStore
-        .booksSelector(state);
-
-    const showedDetailedBook = selectors
-        .ui
-        .showDetailedBookSelector(state);
-
-    const showConfiramtion = selectors
-        .ui
-        .showConfiramtionSelector(state);
-
-    return {
-        books,
-        getbook: (isbn, books) => books.find(book => book.isbn === isbn),
-        showConfiramtion,
-        showedDetailedBook
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addBook: (book) => dispatch(addBook(book)),
-        getBooksRequest: (filter) => dispatch(getBooksRequest(filter)),
-        showDetailedBook: (isbn) => dispatch(showDetailedBook(isbn)),
-        hideModal: () => dispatch(hideModal())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookStore);
+export default connecter(BookStore);
