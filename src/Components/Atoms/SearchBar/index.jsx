@@ -1,5 +1,6 @@
 import React from "react";
-import {Field, reduxForm} from 'redux-form'
+import {Field, reduxForm} from 'redux-form';
+import PropTypes from "prop-types";
 
 const partialSerachBar = ({filterBooks}) => (
     <form onSubmit={e => e.preventDefault()}>
@@ -15,3 +16,7 @@ const partialSerachBar = ({filterBooks}) => (
 )
 
 export const SearchBar = reduxForm({form: 'searchBar', destroyOnUnmount: false})(React.memo(partialSerachBar));
+
+SearchBar.propTypes = {
+    filterBooks: PropTypes.func.isRequired
+};

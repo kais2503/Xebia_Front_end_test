@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import classNames from "classnames"
+import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import styles from './styles.module.scss';
 import {Icon} from '../../Atoms/Icon';
@@ -32,7 +33,7 @@ const partialBookDetailed = ({
         </div>
         <div>
             Synopsis :</div>
-        {synopsis.map((syn, index) => <div>{syn}</div>)}
+        {synopsis.map((syn, index) => <div key={index}>{syn}</div>)}
         <div className={styles.buttons}>
             <Button color="dark" onClick={hide}>
                 <div>
@@ -52,3 +53,16 @@ const partialBookDetailed = ({
 </div>;
 
 export const BookDetailed = React.memo(partialBookDetailed);
+
+BookDetailed.propTypes = {
+    addBook: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    cover: PropTypes.string,
+    hide: PropTypes.func.isRequired,
+    isbn: PropTypes.number.isRequired,
+    key: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    showBook: PropTypes.func.isRequired,
+    synopsis: PropTypes.array.isRequired,
+    title: PropTypes.string
+};

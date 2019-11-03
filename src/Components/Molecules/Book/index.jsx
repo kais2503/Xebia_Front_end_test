@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import classNames from "classnames"
+import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import styles from './styles.module.scss';
 import {Icon} from '../../Atoms/Icon';
@@ -9,7 +10,6 @@ const partialBook = ({
     className,
     cover,
     isbn,
-    key,
     price,
     showBook,
     title
@@ -23,7 +23,7 @@ const partialBook = ({
     };
 
     return (
-        <div className={classNames(styles.container, className)} key={key}>
+        <div className={classNames(styles.container, className)}>
             <div
                 className={styles.cover}
                 onMouseEnter={() => toggleHover(!hidden)}
@@ -49,3 +49,13 @@ const partialBook = ({
 }
 
 export const Book = React.memo(partialBook);
+
+Book.propTypes = {
+    addBook: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    cover: PropTypes.string,
+    isbn: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    showBook: PropTypes.func.isRequired,
+    title: PropTypes.string
+};

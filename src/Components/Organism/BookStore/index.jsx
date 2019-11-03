@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 import {Icon} from '../../Atoms/Icon';
 import {Modal} from '../../Atoms/Modal';
@@ -28,7 +29,7 @@ class BookStore extends React.PureComponent {
         return (
             <div className={styles.container}>
                 {books.map((book, index) => (
-                    <div>
+                    <div key={index}>
                         <Book
                             addBook={addBook}
                             cover={book.cover}
@@ -89,3 +90,14 @@ class BookStore extends React.PureComponent {
 }
 
 export default connecter(BookStore);
+
+BookStore.propTypes = {
+    addBook: PropTypes.func.isRequired,
+    books: PropTypes.array.isRequired,
+    getBook: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired,
+    showConfiramtion: PropTypes.bool.isRequired,
+    showDetailedBook: PropTypes.func.isRequired,
+    showedDetailedBook: PropTypes.bool.isRequired,
+    getBooksRequest: PropTypes.func.isRequired
+};

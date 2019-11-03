@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import styles from './styles.module.scss';
 import {Portal} from '../Portal';
 import {Icon} from '../Icon';
 
-const PartialModal = ({children, title, on, hide}) => {
+const PartialModal = ({children, on, hide}) => {
     return (
         <Portal>
             {on && (
@@ -28,3 +29,9 @@ const PartialModal = ({children, title, on, hide}) => {
 };
 
 export const Modal = React.memo(PartialModal);
+
+Modal.propTypes = {
+    on: PropTypes.func.isRequired,
+    hide: PropTypes.func.isRequired,
+    children: PropTypes.element.isRequired
+};

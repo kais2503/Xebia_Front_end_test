@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {withRouter} from "react-router";
+import PropTypes from "prop-types";
 
 import styles from './styles.module.scss';
 import {Icon} from '../../Atoms/Icon';
@@ -27,3 +28,9 @@ const partialHeader = ({quantity, getBooksRequest, location}) => (
 )
 
 export const Header = withRouter(React.memo(partialHeader));
+
+Header.propTypes = {
+    location: PropTypes.object,
+    quantity: PropTypes.number.isRequired,
+    getBooksRequest: PropTypes.func.isRequired
+};

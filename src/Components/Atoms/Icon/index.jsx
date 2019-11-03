@@ -1,5 +1,6 @@
 import React from "react";
-import classNames from "classnames"
+import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import styles from "./styles.module.scss";
 
@@ -9,3 +10,9 @@ const partialIcon = ({action, className, type}) => {
 }
 
 export const Icon = React.memo(partialIcon);
+
+Icon.propTypes = {
+    action: PropTypes.func,
+    className: PropTypes.string,
+    type: PropTypes.string.isRequired
+};

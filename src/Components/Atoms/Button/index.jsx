@@ -1,8 +1,8 @@
 import React from "react";
-import classNames from "classnames"
+import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import styles from "./styles.module.scss";
-//type ButtonColors = "active" | "dark" | "inactive" | "primary" | "warning";
 
 const PartialButton = ({
   children,
@@ -27,3 +27,13 @@ const PartialButton = ({
 };
 
 export const Button = React.memo(PartialButton);
+
+Button.propTypes = {
+  children: PropTypes.element,
+  className: PropTypes.string,
+  color: PropTypes.string,
+  disabled: PropTypes.bool,
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  type: PropTypes.string
+};

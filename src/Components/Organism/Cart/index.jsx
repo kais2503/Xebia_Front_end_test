@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 import {Icon} from '../../Atoms/Icon';
 import {Button} from "../../Atoms/Button/index";
@@ -73,3 +74,10 @@ class Cart extends React.PureComponent {
 }
 
 export default connecter(Cart);
+
+Cart.propTypes = {
+    deleteBook: PropTypes.func.isRequired,
+    cartValues: PropTypes.array,
+    subtotal: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired
+};
